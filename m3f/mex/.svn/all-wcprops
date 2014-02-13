@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/5/trunk/version-2014_02/mex
+END
+m3f_tif_sampleFactorVectors.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/5/trunk/version-2014_02/mex/m3f_tif_sampleFactorVectors.c
+END
+seedMexRand.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/5/trunk/version-2014_02/mex/seedMexRand.c
+END
+accumarrayMex.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/5/trunk/version-2014_02/mex/accumarrayMex.c
+END
+mexCommon.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/5/trunk/version-2014_02/mex/mexCommon.c
+END
+m3f_tib_sampleTopics.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/5/trunk/version-2014_02/mex/m3f_tib_sampleTopics.c
+END
+m3f_tib_predictMex.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/5/trunk/version-2014_02/mex/m3f_tib_predictMex.c
+END
+mexCommon.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/5/trunk/version-2014_02/mex/mexCommon.h
+END
+m3f_tif_sampleTopics.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/5/trunk/version-2014_02/mex/m3f_tif_sampleTopics.c
+END
+m3f_tif_predictMex.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/5/trunk/version-2014_02/mex/m3f_tif_predictMex.c
+END
+m3f_tib_sampleOffsets.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/5/trunk/version-2014_02/mex/m3f_tib_sampleOffsets.c
+END
+sampleVectorMex.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/5/trunk/version-2014_02/mex/sampleVectorMex.c
+END
+m3f_tif_sampleBiases.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/5/trunk/version-2014_02/mex/m3f_tif_sampleBiases.c
+END
+sgdFactorVectors.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/5/trunk/version-2014_02/mex/sgdFactorVectors.c
+END
+sampleTopicParams.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/5/trunk/version-2014_02/mex/sampleTopicParams.c
+END
+m3f_tib_sampleFactorVectors.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/5/trunk/version-2014_02/mex/m3f_tib_sampleFactorVectors.c
+END
+m3f_tif_sampleTopicFactorVectors.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/5/trunk/version-2014_02/mex/m3f_tif_sampleTopicFactorVectors.c
+END
+mexUtil.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/5/trunk/version-2014_02/mex/mexUtil.h
+END

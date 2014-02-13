@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/5/trunk/version-2014_02
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/5/trunk/version-2014_02/README.txt
+END
+jaggedCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/5/trunk/version-2014_02/jaggedCell.m
+END
+seedRand.m
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/5/trunk/version-2014_02/seedRand.m
+END
+evalPreds.m
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/5/trunk/version-2014_02/evalPreds.m
+END
+make_mex.m
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/5/trunk/version-2014_02/make_mex.m
+END
+m3f_tib_rnd.m
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/5/trunk/version-2014_02/m3f_tib_rnd.m
+END
+m3f_tib_exper.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/5/trunk/version-2014_02/m3f_tib_exper.m
+END
+m3f_tib_initSamp.m
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/5/trunk/version-2014_02/m3f_tib_initSamp.m
+END
+m3f_tib_initModel.m
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/5/trunk/version-2014_02/m3f_tib_initModel.m
+END
+loadDyadicData.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/5/trunk/version-2014_02/loadDyadicData.m
+END
+m3f_tib_gibbs.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/5/trunk/version-2014_02/m3f_tib_gibbs.m
+END
+m3f_tif_exper.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/5/trunk/version-2014_02/m3f_tif_exper.m
+END
+m3f_tif_rnd.m
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/5/trunk/version-2014_02/m3f_tif_rnd.m
+END
+m3f_tif_initSamp.m
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/5/trunk/version-2014_02/m3f_tif_initSamp.m
+END
+m3f_tif_initModel.m
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/5/trunk/version-2014_02/m3f_tif_initModel.m
+END
+sampleHyperParams.m
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/5/trunk/version-2014_02/sampleHyperParams.m
+END
+m3f_tif_gibbs.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/5/trunk/version-2014_02/m3f_tif_gibbs.m
+END
+m3f_tif_sampleTopicHyperParams.m
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/5/trunk/version-2014_02/m3f_tif_sampleTopicHyperParams.m
+END

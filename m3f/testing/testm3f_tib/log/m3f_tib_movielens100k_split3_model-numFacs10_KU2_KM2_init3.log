@@ -1,0 +1,493 @@
+Round 1 Eval:
+	Train RMSE = 1.12904, Train MAE = 0.947947
+	Test RMSE = 1.1115, Test MAE = 0.930526
+Round 2 Eval:
+	Train RMSE = 0.97463, Train MAE = 0.794649
+	Test RMSE = 0.996457, Test MAE = 0.809961
+Elapsed time: 0.0231021 seconds.
+Round 2 Diagnostics:
+	LambdaU norm = 3057.62, LambdaM norm = 5319.81
+	a norm = 3.15896, b norm = 3.19385,
+	c norm = 17.9791, d norm = 23.6678
+	zU counts = 39900 40100 
+	zM counts = 39969 40031 
+Round 3 Eval:
+	Train RMSE = 0.914366, Train MAE = 0.736863
+	Test RMSE = 0.97066, Test MAE = 0.779361
+Elapsed time: 0.0216898 seconds.
+Round 3 Diagnostics:
+	LambdaU norm = 1532.01, LambdaM norm = 2686.01
+	a norm = 4.49845, b norm = 4.49958,
+	c norm = 18.5642, d norm = 26.2634
+	zU counts = 39997 40003 
+	zM counts = 39803 40197 
+Round 4 Eval:
+	Train RMSE = 0.869259, Train MAE = 0.696708
+	Test RMSE = 0.961253, Test MAE = 0.768696
+Elapsed time: 0.0264797 seconds.
+Round 4 Diagnostics:
+	LambdaU norm = 1009.69, LambdaM norm = 1771.44
+	a norm = 5.56511, b norm = 5.49295,
+	c norm = 20.295, d norm = 27.3495
+	zU counts = 39967 40033 
+	zM counts = 39995 40005 
+Round 5 Eval:
+	Train RMSE = 0.832892, Train MAE = 0.665351
+	Test RMSE = 0.956831, Test MAE = 0.763712
+Elapsed time: 0.0240885 seconds.
+Round 5 Diagnostics:
+	LambdaU norm = 731.2, LambdaM norm = 1370.25
+	a norm = 6.57724, b norm = 6.40171,
+	c norm = 21.3568, d norm = 27.4828
+	zU counts = 39820 40180 
+	zM counts = 39965 40035 
+Round 6 Eval:
+	Train RMSE = 0.803645, Train MAE = 0.640512
+	Test RMSE = 0.954185, Test MAE = 0.760694
+Elapsed time: 0.0269607 seconds.
+Round 6 Diagnostics:
+	LambdaU norm = 592.744, LambdaM norm = 1063.43
+	a norm = 7.36903, b norm = 7.1848,
+	c norm = 21.9, d norm = 27.3036
+	zU counts = 39836 40164 
+	zM counts = 39742 40258 
+Round 7 Eval:
+	Train RMSE = 0.77934, Train MAE = 0.619571
+	Test RMSE = 0.952469, Test MAE = 0.75898
+Elapsed time: 0.029081 seconds.
+Round 7 Diagnostics:
+	LambdaU norm = 499.164, LambdaM norm = 886.87
+	a norm = 7.97133, b norm = 7.98297,
+	c norm = 22.3729, d norm = 27.1027
+	zU counts = 40006 39994 
+	zM counts = 39790 40210 
+Round 8 Eval:
+	Train RMSE = 0.75974, Train MAE = 0.602906
+	Test RMSE = 0.951485, Test MAE = 0.758064
+Elapsed time: 0.0265244 seconds.
+Round 8 Diagnostics:
+	LambdaU norm = 424.455, LambdaM norm = 762.024
+	a norm = 8.72828, b norm = 8.52682,
+	c norm = 22.5345, d norm = 26.9297
+	zU counts = 39762 40238 
+	zM counts = 39733 40267 
+Round 9 Eval:
+	Train RMSE = 0.743721, Train MAE = 0.589142
+	Test RMSE = 0.950689, Test MAE = 0.757357
+Elapsed time: 0.0273648 seconds.
+Round 9 Diagnostics:
+	LambdaU norm = 371.731, LambdaM norm = 689.761
+	a norm = 9.33613, b norm = 9.0583,
+	c norm = 22.7803, d norm = 26.5661
+	zU counts = 39759 40241 
+	zM counts = 39486 40514 
+Round 10 Eval:
+	Train RMSE = 0.730466, Train MAE = 0.577594
+	Test RMSE = 0.950112, Test MAE = 0.756827
+Elapsed time: 0.0271803 seconds.
+Round 10 Diagnostics:
+	LambdaU norm = 337.072, LambdaM norm = 617.813
+	a norm = 9.80591, b norm = 9.61758,
+	c norm = 22.787, d norm = 26.6057
+	zU counts = 40119 39881 
+	zM counts = 39553 40447 
+Round 11 Eval:
+	Train RMSE = 0.719175, Train MAE = 0.567706
+	Test RMSE = 0.949743, Test MAE = 0.756501
+Elapsed time: 0.0258486 seconds.
+Round 11 Diagnostics:
+	LambdaU norm = 300.751, LambdaM norm = 568.868
+	a norm = 10.296, b norm = 10.1063,
+	c norm = 22.7686, d norm = 26.5754
+	zU counts = 39980 40020 
+	zM counts = 39558 40442 
+Round 12 Eval:
+	Train RMSE = 0.709447, Train MAE = 0.559317
+	Test RMSE = 0.9495, Test MAE = 0.756182
+Elapsed time: 0.0277631 seconds.
+Round 12 Diagnostics:
+	LambdaU norm = 278.997, LambdaM norm = 518.342
+	a norm = 11.0767, b norm = 10.5771,
+	c norm = 22.8534, d norm = 26.4873
+	zU counts = 39824 40176 
+	zM counts = 39753 40247 
+Round 13 Eval:
+	Train RMSE = 0.701267, Train MAE = 0.552195
+	Test RMSE = 0.949244, Test MAE = 0.755983
+Elapsed time: 0.0255397 seconds.
+Round 13 Diagnostics:
+	LambdaU norm = 253.383, LambdaM norm = 466.933
+	a norm = 11.5714, b norm = 11.2036,
+	c norm = 22.6733, d norm = 26.8072
+	zU counts = 39960 40040 
+	zM counts = 39784 40216 
+Round 14 Eval:
+	Train RMSE = 0.694199, Train MAE = 0.546043
+	Test RMSE = 0.949056, Test MAE = 0.755778
+Elapsed time: 0.0263493 seconds.
+Round 14 Diagnostics:
+	LambdaU norm = 240.864, LambdaM norm = 434.359
+	a norm = 11.9686, b norm = 11.7977,
+	c norm = 22.8466, d norm = 26.2511
+	zU counts = 39898 40102 
+	zM counts = 39889 40111 
+Round 15 Eval:
+	Train RMSE = 0.687864, Train MAE = 0.540324
+	Test RMSE = 0.948749, Test MAE = 0.75549
+Elapsed time: 0.0240769 seconds.
+Round 15 Diagnostics:
+	LambdaU norm = 230.941, LambdaM norm = 405.314
+	a norm = 12.4671, b norm = 12.3155,
+	c norm = 23.0463, d norm = 26.3259
+	zU counts = 39843 40157 
+	zM counts = 39724 40276 
+Round 16 Eval:
+	Train RMSE = 0.682316, Train MAE = 0.535356
+	Test RMSE = 0.948515, Test MAE = 0.755262
+Elapsed time: 0.027308 seconds.
+Round 16 Diagnostics:
+	LambdaU norm = 220.574, LambdaM norm = 379.416
+	a norm = 12.8093, b norm = 12.8226,
+	c norm = 22.7527, d norm = 26.4906
+	zU counts = 39864 40136 
+	zM counts = 39743 40257 
+Round 17 Eval:
+	Train RMSE = 0.677584, Train MAE = 0.531184
+	Test RMSE = 0.948298, Test MAE = 0.755046
+Elapsed time: 0.0234853 seconds.
+Round 17 Diagnostics:
+	LambdaU norm = 212.374, LambdaM norm = 356.693
+	a norm = 13.0593, b norm = 12.899,
+	c norm = 23.0607, d norm = 26.3281
+	zU counts = 39832 40168 
+	zM counts = 39494 40506 
+Round 18 Eval:
+	Train RMSE = 0.673238, Train MAE = 0.527335
+	Test RMSE = 0.9481, Test MAE = 0.754964
+Elapsed time: 0.0215375 seconds.
+Round 18 Diagnostics:
+	LambdaU norm = 203.1, LambdaM norm = 347.349
+	a norm = 13.4449, b norm = 13.3117,
+	c norm = 23.1191, d norm = 26.3087
+	zU counts = 39959 40041 
+	zM counts = 39732 40268 
+Round 19 Eval:
+	Train RMSE = 0.669375, Train MAE = 0.523843
+	Test RMSE = 0.947866, Test MAE = 0.754798
+Elapsed time: 0.0243391 seconds.
+Round 19 Diagnostics:
+	LambdaU norm = 196.208, LambdaM norm = 326.596
+	a norm = 13.6356, b norm = 13.4585,
+	c norm = 22.8949, d norm = 26.2811
+	zU counts = 40106 39894 
+	zM counts = 39800 40200 
+Round 20 Eval:
+	Train RMSE = 0.665813, Train MAE = 0.520662
+	Test RMSE = 0.947683, Test MAE = 0.754698
+Elapsed time: 0.0249873 seconds.
+Round 20 Diagnostics:
+	LambdaU norm = 193.176, LambdaM norm = 315.015
+	a norm = 14.101, b norm = 13.7309,
+	c norm = 23.1249, d norm = 25.9593
+	zU counts = 39683 40317 
+	zM counts = 39668 40332 
+Round 21 Eval:
+	Train RMSE = 0.662566, Train MAE = 0.517728
+	Test RMSE = 0.947541, Test MAE = 0.75457
+Elapsed time: 0.0219416 seconds.
+Round 21 Diagnostics:
+	LambdaU norm = 184.261, LambdaM norm = 305.244
+	a norm = 14.1468, b norm = 14.1227,
+	c norm = 22.9366, d norm = 25.8774
+	zU counts = 39925 40075 
+	zM counts = 39978 40022 
+Round 22 Eval:
+	Train RMSE = 0.659651, Train MAE = 0.515077
+	Test RMSE = 0.947569, Test MAE = 0.754651
+Elapsed time: 0.0233916 seconds.
+Round 22 Diagnostics:
+	LambdaU norm = 180.214, LambdaM norm = 291.706
+	a norm = 14.475, b norm = 14.3507,
+	c norm = 23.1466, d norm = 26.0293
+	zU counts = 39870 40130 
+	zM counts = 39629 40371 
+Round 23 Eval:
+	Train RMSE = 0.657031, Train MAE = 0.512704
+	Test RMSE = 0.947471, Test MAE = 0.754631
+Elapsed time: 0.0224643 seconds.
+Round 23 Diagnostics:
+	LambdaU norm = 184.522, LambdaM norm = 284.766
+	a norm = 14.6398, b norm = 14.749,
+	c norm = 22.9577, d norm = 26.1499
+	zU counts = 40045 39955 
+	zM counts = 39632 40368 
+Round 24 Eval:
+	Train RMSE = 0.654518, Train MAE = 0.510388
+	Test RMSE = 0.947418, Test MAE = 0.754629
+Elapsed time: 0.022022 seconds.
+Round 24 Diagnostics:
+	LambdaU norm = 179.526, LambdaM norm = 280.422
+	a norm = 15.0037, b norm = 14.9547,
+	c norm = 22.808, d norm = 26.0653
+	zU counts = 40065 39935 
+	zM counts = 39743 40257 
+Round 25 Eval:
+	Train RMSE = 0.652091, Train MAE = 0.508155
+	Test RMSE = 0.947367, Test MAE = 0.75463
+Elapsed time: 0.0245098 seconds.
+Round 25 Diagnostics:
+	LambdaU norm = 173.22, LambdaM norm = 269.465
+	a norm = 15.4345, b norm = 15.285,
+	c norm = 23.2902, d norm = 26.0766
+	zU counts = 40234 39766 
+	zM counts = 39792 40208 
+Round 26 Eval:
+	Train RMSE = 0.649942, Train MAE = 0.506194
+	Test RMSE = 0.947279, Test MAE = 0.754603
+Elapsed time: 0.0272891 seconds.
+Round 26 Diagnostics:
+	LambdaU norm = 178.19, LambdaM norm = 262.157
+	a norm = 15.7002, b norm = 15.6973,
+	c norm = 23.1972, d norm = 25.994
+	zU counts = 39957 40043 
+	zM counts = 39663 40337 
+Round 27 Eval:
+	Train RMSE = 0.647943, Train MAE = 0.504327
+	Test RMSE = 0.947179, Test MAE = 0.754534
+Elapsed time: 0.0270095 seconds.
+Round 27 Diagnostics:
+	LambdaU norm = 171.686, LambdaM norm = 253.123
+	a norm = 16.1406, b norm = 16.2999,
+	c norm = 22.9534, d norm = 26.0539
+	zU counts = 40110 39890 
+	zM counts = 39601 40399 
+Round 28 Eval:
+	Train RMSE = 0.646029, Train MAE = 0.502582
+	Test RMSE = 0.947091, Test MAE = 0.754439
+Elapsed time: 0.0270897 seconds.
+Round 28 Diagnostics:
+	LambdaU norm = 154.44, LambdaM norm = 234.66
+	a norm = 16.7189, b norm = 16.8538,
+	c norm = 23.0295, d norm = 25.6866
+	zU counts = 40123 39877 
+	zM counts = 39827 40173 
+Round 29 Eval:
+	Train RMSE = 0.644241, Train MAE = 0.500957
+	Test RMSE = 0.946854, Test MAE = 0.754216
+Elapsed time: 0.0308964 seconds.
+Round 29 Diagnostics:
+	LambdaU norm = 150.426, LambdaM norm = 231.67
+	a norm = 17.8368, b norm = 17.5345,
+	c norm = 22.9683, d norm = 25.7666
+	zU counts = 39860 40140 
+	zM counts = 39959 40041 
+Round 30 Eval:
+	Train RMSE = 0.642296, Train MAE = 0.499175
+	Test RMSE = 0.94652, Test MAE = 0.753951
+Elapsed time: 0.0278293 seconds.
+Round 30 Diagnostics:
+	LambdaU norm = 139.729, LambdaM norm = 223.575
+	a norm = 19.2654, b norm = 18.6507,
+	c norm = 23.1042, d norm = 25.7581
+	zU counts = 39847 40153 
+	zM counts = 39839 40161 
+Round 31 Eval:
+	Train RMSE = 0.640345, Train MAE = 0.497433
+	Test RMSE = 0.94588, Test MAE = 0.753399
+Elapsed time: 0.0314383 seconds.
+Round 31 Diagnostics:
+	LambdaU norm = 132.503, LambdaM norm = 215.726
+	a norm = 21.0522, b norm = 19.5067,
+	c norm = 22.9761, d norm = 25.5712
+	zU counts = 39898 40102 
+	zM counts = 39624 40376 
+Round 32 Eval:
+	Train RMSE = 0.638353, Train MAE = 0.495723
+	Test RMSE = 0.945176, Test MAE = 0.752831
+Elapsed time: 0.031677 seconds.
+Round 32 Diagnostics:
+	LambdaU norm = 127.045, LambdaM norm = 205.544
+	a norm = 23.1381, b norm = 20.6248,
+	c norm = 22.7799, d norm = 25.2394
+	zU counts = 40035 39965 
+	zM counts = 39679 40321 
+Round 33 Eval:
+	Train RMSE = 0.636488, Train MAE = 0.494159
+	Test RMSE = 0.944236, Test MAE = 0.752071
+Elapsed time: 0.0286447 seconds.
+Round 33 Diagnostics:
+	LambdaU norm = 127.299, LambdaM norm = 195.631
+	a norm = 25.6369, b norm = 21.3393,
+	c norm = 22.4887, d norm = 25.3147
+	zU counts = 40181 39819 
+	zM counts = 39567 40433 
+Round 34 Eval:
+	Train RMSE = 0.634714, Train MAE = 0.492641
+	Test RMSE = 0.94321, Test MAE = 0.75122
+Elapsed time: 0.0297068 seconds.
+Round 34 Diagnostics:
+	LambdaU norm = 121.996, LambdaM norm = 187.595
+	a norm = 27.8355, b norm = 22.1682,
+	c norm = 22.291, d norm = 24.8666
+	zU counts = 40072 39928 
+	zM counts = 39697 40303 
+Round 35 Eval:
+	Train RMSE = 0.633039, Train MAE = 0.491313
+	Test RMSE = 0.942071, Test MAE = 0.750265
+Elapsed time: 0.0292899 seconds.
+Round 35 Diagnostics:
+	LambdaU norm = 115.514, LambdaM norm = 175.017
+	a norm = 29.9102, b norm = 23.3338,
+	c norm = 22.1307, d norm = 24.4737
+	zU counts = 39750 40250 
+	zM counts = 39652 40348 
+Round 36 Eval:
+	Train RMSE = 0.631496, Train MAE = 0.490081
+	Test RMSE = 0.941041, Test MAE = 0.749361
+Elapsed time: 0.0316722 seconds.
+Round 36 Diagnostics:
+	LambdaU norm = 113.226, LambdaM norm = 173.467
+	a norm = 32.0148, b norm = 23.8646,
+	c norm = 21.9748, d norm = 23.9509
+	zU counts = 40028 39972 
+	zM counts = 39628 40372 
+Round 37 Eval:
+	Train RMSE = 0.630077, Train MAE = 0.488923
+	Test RMSE = 0.939929, Test MAE = 0.748458
+Elapsed time: 0.0306256 seconds.
+Round 37 Diagnostics:
+	LambdaU norm = 110.309, LambdaM norm = 177.258
+	a norm = 33.078, b norm = 24.5528,
+	c norm = 21.9451, d norm = 23.3642
+	zU counts = 40180 39820 
+	zM counts = 39723 40277 
+Round 38 Eval:
+	Train RMSE = 0.628667, Train MAE = 0.487818
+	Test RMSE = 0.938852, Test MAE = 0.747532
+Elapsed time: 0.0283787 seconds.
+Round 38 Diagnostics:
+	LambdaU norm = 107.754, LambdaM norm = 172.246
+	a norm = 34.7872, b norm = 25.0277,
+	c norm = 21.7798, d norm = 23.2469
+	zU counts = 39946 40054 
+	zM counts = 39774 40226 
+Round 39 Eval:
+	Train RMSE = 0.627398, Train MAE = 0.486812
+	Test RMSE = 0.93774, Test MAE = 0.746611
+Elapsed time: 0.0242906 seconds.
+Round 39 Diagnostics:
+	LambdaU norm = 102.262, LambdaM norm = 171.591
+	a norm = 36.9519, b norm = 25.4636,
+	c norm = 21.5461, d norm = 23.1333
+	zU counts = 40248 39752 
+	zM counts = 39834 40166 
+Round 40 Eval:
+	Train RMSE = 0.62612, Train MAE = 0.485824
+	Test RMSE = 0.936671, Test MAE = 0.745722
+Elapsed time: 0.02581 seconds.
+Round 40 Diagnostics:
+	LambdaU norm = 97.3306, LambdaM norm = 165.676
+	a norm = 38.8264, b norm = 25.8111,
+	c norm = 21.6708, d norm = 22.7297
+	zU counts = 40016 39984 
+	zM counts = 39735 40265 
+Round 41 Eval:
+	Train RMSE = 0.624874, Train MAE = 0.484822
+	Test RMSE = 0.93564, Test MAE = 0.744825
+Elapsed time: 0.0263459 seconds.
+Round 41 Diagnostics:
+	LambdaU norm = 96.2781, LambdaM norm = 158.801
+	a norm = 40.4655, b norm = 26.4988,
+	c norm = 21.3601, d norm = 22.196
+	zU counts = 39924 40076 
+	zM counts = 39540 40460 
+Round 42 Eval:
+	Train RMSE = 0.623616, Train MAE = 0.48384
+	Test RMSE = 0.934575, Test MAE = 0.74393
+Elapsed time: 0.0270791 seconds.
+Round 42 Diagnostics:
+	LambdaU norm = 89.1607, LambdaM norm = 155.872
+	a norm = 42.0249, b norm = 26.673,
+	c norm = 21.1916, d norm = 21.9521
+	zU counts = 40266 39734 
+	zM counts = 39564 40436 
+Round 43 Eval:
+	Train RMSE = 0.62235, Train MAE = 0.482811
+	Test RMSE = 0.933523, Test MAE = 0.74302
+Elapsed time: 0.0276324 seconds.
+Round 43 Diagnostics:
+	LambdaU norm = 89.6573, LambdaM norm = 154.941
+	a norm = 43.261, b norm = 27.3086,
+	c norm = 21.1494, d norm = 21.4677
+	zU counts = 40041 39959 
+	zM counts = 39708 40292 
+Round 44 Eval:
+	Train RMSE = 0.621129, Train MAE = 0.481883
+	Test RMSE = 0.932453, Test MAE = 0.742055
+Elapsed time: 0.0235304 seconds.
+Round 44 Diagnostics:
+	LambdaU norm = 88.3929, LambdaM norm = 151.327
+	a norm = 44.9246, b norm = 27.986,
+	c norm = 20.9777, d norm = 21.105
+	zU counts = 39717 40283 
+	zM counts = 39703 40297 
+Round 45 Eval:
+	Train RMSE = 0.619992, Train MAE = 0.480991
+	Test RMSE = 0.931418, Test MAE = 0.741116
+Elapsed time: 0.024988 seconds.
+Round 45 Diagnostics:
+	LambdaU norm = 87.9791, LambdaM norm = 149.095
+	a norm = 45.8259, b norm = 28.7036,
+	c norm = 21.0042, d norm = 20.9735
+	zU counts = 40022 39978 
+	zM counts = 39610 40390 
+Round 46 Eval:
+	Train RMSE = 0.618971, Train MAE = 0.48021
+	Test RMSE = 0.930478, Test MAE = 0.740281
+Elapsed time: 0.0222966 seconds.
+Round 46 Diagnostics:
+	LambdaU norm = 89.778, LambdaM norm = 144.07
+	a norm = 46.5858, b norm = 29.6016,
+	c norm = 21.0258, d norm = 20.3728
+	zU counts = 39999 40001 
+	zM counts = 39689 40311 
+Round 47 Eval:
+	Train RMSE = 0.617977, Train MAE = 0.479417
+	Test RMSE = 0.929556, Test MAE = 0.739478
+Elapsed time: 0.0243805 seconds.
+Round 47 Diagnostics:
+	LambdaU norm = 84.4868, LambdaM norm = 136.735
+	a norm = 47.5674, b norm = 30.0448,
+	c norm = 20.8634, d norm = 20.3297
+	zU counts = 39701 40299 
+	zM counts = 39879 40121 
+Round 48 Eval:
+	Train RMSE = 0.617074, Train MAE = 0.478766
+	Test RMSE = 0.928712, Test MAE = 0.738746
+Elapsed time: 0.0230002 seconds.
+Round 48 Diagnostics:
+	LambdaU norm = 81.4837, LambdaM norm = 137.176
+	a norm = 48.8416, b norm = 30.4797,
+	c norm = 20.6716, d norm = 20.0712
+	zU counts = 40193 39807 
+	zM counts = 39546 40454 
+Round 49 Eval:
+	Train RMSE = 0.61616, Train MAE = 0.478044
+	Test RMSE = 0.927903, Test MAE = 0.738075
+Elapsed time: 0.0215925 seconds.
+Round 49 Diagnostics:
+	LambdaU norm = 85.9062, LambdaM norm = 131.088
+	a norm = 50.1605, b norm = 30.785,
+	c norm = 20.5191, d norm = 20.0692
+	zU counts = 39799 40201 
+	zM counts = 39727 40273 
+Round 50 Eval:
+	Train RMSE = 0.615304, Train MAE = 0.477404
+	Test RMSE = 0.92704, Test MAE = 0.737322
+Elapsed time: 0.0291546 seconds.
+Round 50 Diagnostics:
+	LambdaU norm = 84.68, LambdaM norm = 127.253
+	a norm = 50.4276, b norm = 30.9847,
+	c norm = 20.6185, d norm = 19.7531
+	zU counts = 39813 40187 
+	zM counts = 39662 40338 
