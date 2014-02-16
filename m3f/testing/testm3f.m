@@ -31,7 +31,7 @@
 
 % -----------------------------BEGIN CODE--------------------------------
 
-test_tib = true;
+test_tib = false;
 test_tif = true;
 
 if test_tib
@@ -45,13 +45,20 @@ if test_tib
 end
 
 if test_tif
-    mkdir('testm3f_tif');
-    mkdir('testm3f_tif/models');
-    mkdir('testm3f_tif/samples');
-    mkdir('testm3f_tif/log');
-    
-    err = m3f_tif_exper('testm3f_tif', 'movielens100k', [1 2 3], 3, ...
-        12345, 10, 2, 2, 2);
+    KU = 2;
+    KM = 2;
+    NumFacs = 10;
+    NumTopicFacs = 10;
+    dirname = sprintf('m3f_tif-KU%d-KM%d-NumFacs%d-NumTopicFacs%d',...
+                        KU, KM, NumFacs, NumTopicFacs);
+    mkdir(dirname);
+    mkdir(sprintf([dirname,'/models']));
+    mkdir(sprintf([dirname,'/samples']));
+    mkdir(sprintf([dirname,'/log']));
+    %   m3f_tif_exper(experName, dataName, splitNums, initMode, ...
+    %                             seed, numFacs, KU, KM, numTopicFacs)
+    err = m3f_tif_exper(dirname, 'movielens100k', [1 2 3 4 5], 2, ...
+       12345,  NumFacs, KU, KM, NumTopicFacs);
 end
 %% 
 
