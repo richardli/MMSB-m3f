@@ -59,6 +59,10 @@ end
 % referencing each id in ids
 for e = 1:numExamples
     r = ids(e);
+    % changed here @richard, if not all users are in the test data
+    if r > numEntries
+        continue;
+    end    
     jCells{r}(counts(r)) = e;
     counts(r) = counts(r) + 1; 
 end
