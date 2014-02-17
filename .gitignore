@@ -1,3 +1,5 @@
+/m3f/testing/m3f*
+/m3f/testing/test*
 /dependencies
 /movielens100k
 /NoTouchversion-2014_02
@@ -16,3 +18,14 @@ build/*
 *.~lock.*
 output/*
 .DS_Store
+*.mat
+*.base
+*.mat
+*.pl
+*.dat
+*.log
+m3f/testing/ml-10m.zip
+m3f/testing/m3f*
+m3f/testing/testm3f_*
+*.test
+*.train

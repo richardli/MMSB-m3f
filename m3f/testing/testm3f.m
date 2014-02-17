@@ -35,30 +35,98 @@ test_tib = false;
 test_tif = true;
 
 if test_tib
-    mkdir('testm3f_tib');
-    mkdir('testm3f_tib/models');
-    mkdir('testm3f_tib/samples');
-    mkdir('testm3f_tib/log');
+    KU = 5;
+    KM = 5;
+    NumFacs = 10;
+    Ngibbs = 500;
+    Nburnin = 400;
+    dirname = sprintf('m3f_tib-KU%d-KM%d-NumFacs%d',...
+                        KU, KM, NumFacs);
+    whichdata = sprintf('movielens100k');                
+    mkdir(dirname);
+    mkdir(sprintf([dirname,'/models']));
+    mkdir(sprintf([dirname,'/samples']));
+    mkdir(sprintf([dirname,'/log']));
+    %   m3f_tib_exper(experName, dataName, splitNums, initMode, ...
+    %                             seed, numFacs, KU, KM, ...
+    %                             Ngibbs, Nburnin)
     
-    err = m3f_tib_exper('testm3f_tib', 'movielens100k', [1 2 3], 3, ...
-        12345, 10, 2, 2);
-end
+%    err = m3f_tib_exper(dirname, whichdata, [100 101], 1, ...
+%        12345,  NumFacs, KU, KM , Ngibbs, Nburnin);
+    for i = 1:4
+        NumFacs = 10 * i;
+        err = m3f_tib_exper(dirname, whichdata, [100 101], 1, ...
+       12345,  NumFacs, 30, 30 , Ngibbs, Nburnin);
+    end
+    %------------------%
+%     KU = 10;
+%     KM = 10;
+%     for i = 1:4
+%         NumFacs = 10 * i;
+%         err = m3f_tib_exper(dirname, whichdata, [100 101], 1, ...
+%        12345,  NumFacs, KU, KM , Ngibbs, Nburnin);
+%     end
+%     %--------------------%
+%     KU = 20;
+%     KM = 10;
+%     for i = 1:4
+%         NumFacs = 10 * i;
+%         err = m3f_tib_exper(dirname, whichdata, [100 101], 1, ...
+%        12345,  NumFacs, KU, KM , Ngibbs, Nburnin);
+%     end
+%     KU = 5;
+%     KM = 5;
+    
+    
+ end
 
 if test_tif
-    KU = 2;
-    KM = 2;
+    KU = 4;
+    KM = 1;
     NumFacs = 10;
-    NumTopicFacs = 10;
-    dirname = sprintf('m3f_tif-KU%d-KM%d-NumFacs%d-NumTopicFacs%d',...
-                        KU, KM, NumFacs, NumTopicFacs);
+    NumTopicFacs = 2;
+    Ngibbs = 500;
+    Nburnin = 400;
+   % dirname = sprintf('m3f_tif-KU%d-KM%d-NumFacs%d-NumTopicFacs%d',...
+    %                    KU, KM, NumFacs, NumTopicFacs);
+    dirname = sprintf('m3f_tif-meta');
+    whichdata = sprintf('movielens100k');                
     mkdir(dirname);
     mkdir(sprintf([dirname,'/models']));
     mkdir(sprintf([dirname,'/samples']));
     mkdir(sprintf([dirname,'/log']));
     %   m3f_tif_exper(experName, dataName, splitNums, initMode, ...
-    %                             seed, numFacs, KU, KM, numTopicFacs)
-    err = m3f_tif_exper(dirname, 'movielens100k', [1 2 3 4 5], 2, ...
-       12345,  NumFacs, KU, KM, NumTopicFacs);
+    %                             seed, numFacs, KU, KM, numTopicFacs,...
+    %                             Ngibbs, Nburnin)
+%    err = m3f_tif_exper(dirname, whichdata, [100 101], 3, ...
+%       12345,  NumFacs, KU, KM, NumTopicFacs, Ngibbs, Nburnin);
+    %------------------%
+    KU = 5;
+    KM = 5;
+    for i = 1:4
+        NumFacs = 10 * i;
+        err = m3f_tif_exper(dirname, whichdata, [100 101], 3, ...
+       12345,  NumFacs, KU, KM ,NumTopicFacs,  Ngibbs, Nburnin);
+    end
+    %------------------%
+    KU = 10;
+    KM = 10;
+    for i = 1:4
+        NumFacs = 10 * i;
+        err = m3f_tif_exper(dirname, whichdata, [100 101], 3, ...
+       12345,  NumFacs, KU, KM , NumTopicFacs, Ngibbs, Nburnin);
+    end
+    %--------------------%
+    KU = 20;
+    KM = 10;
+    for i = 1:4
+        NumFacs = 10 * i;
+        err = m3f_tif_exper(dirname, whichdata, [100 101], 3, ...
+       12345,  NumFacs, KU, KM , NumTopicFacs, Ngibbs, Nburnin);
+    end
+    %--------------------%
+   
+    
 end
 %% 
 
