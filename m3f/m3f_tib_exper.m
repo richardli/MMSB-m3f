@@ -1,5 +1,6 @@
 function [err] = m3f_tib_exper(experName, dataName, splitNums, initMode, ...
-                                 seed, numFacs, KU, KM)
+                                 seed, numFacs, KU, KM, ...
+                                 Ngibbs, Nburnin)
 %M3F_TIB_EXPER Run m3f_tib Gibbs sampling experiments.
 %
 % Usage:
@@ -77,9 +78,9 @@ for s = splitNums
    
    %% Create Gibbs sampling options structure
    % Number of sampling rounds (including initial sample)
-   opts.T = 50;
+   opts.T = Ngibbs;
    % Number of burnin rounds
-   opts.burnin = 0;
+   opts.burnin = Nburnin;
    % Log file string
    opts.logStr = sprintf([experName,'/log/',prefix,'_%s_split%d_model%s_init%d.log'], ...
                          dataName, s, modelID, initMode);
