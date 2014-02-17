@@ -75,9 +75,11 @@ void sampleTopicParams(const mxArray* exampsByUser, int KU, int numUsers,
    for(int u = 0; u < numUsers; u++){
       int thread = omp_get_thread_num();
       // Initialize to prior term
-      for(int i = 0; i < KU; i++)
+      for(int i = 0; i < KU; i++){
          counts[thread][i] = ratio;
-
+      }
+      //counts[thread][0] += alpha/4;
+      //counts[thread][1] += alpha/4;
       // Iterate over user's examples computing sufficient stats
       mxArray* exampsArray = mxGetCell(exampsByUser, u);
       mwSize len = mxGetN(exampsArray);

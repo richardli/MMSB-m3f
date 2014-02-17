@@ -55,7 +55,11 @@ function [sample] = m3f_tib_rnd(model, uIDs, mIDs, sampleRatings)
 % Function for sampling topic parameter vector
 function logtheta = logtheta_rnd(alpha, KU, numUsers)
 if KU > 1
-   logtheta = log(dirichlet_sample(repmat(alpha/KU, KU, 1), numUsers));
+%   prior = repmat(alpha/KU/2, KU, 1);
+%   prior(1) = prior(1) + alpha/4;
+%   prior(2) = prior(2) * alpha/4;
+   prior = repmat(alpha/KU, KU, 1);
+   logtheta = log(dirichlet_sample(prior, numUsers));
 elseif KU > 0
    logtheta = zeros(1, numUsers);
 else
