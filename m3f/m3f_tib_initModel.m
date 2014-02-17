@@ -74,7 +74,10 @@ if nargin < 6
    model.nu0 = numFacs;
    model.mu0 = zeros(numFacs,1);
    model.lambda0 = 10; 
+ 
    model.alpha = 10000;
+ %  model.alpha = 1;
+   
    model.sigmaSqd = .5;
    model.sigmaSqd0 = .1;
    model.c0 = 0;
