@@ -56,34 +56,64 @@ if nargin < 3
 end
 
 %% Load dyadic data
-if(strcmp(dataName, 'movielens100k'))
+%if(strcmp(dataName, 'movielens100k'))
    if useHoldOut
       warning('loadDyadicData:noHoldOut',... 
 	      ['Hold out set unavailable for ',dataName,'. ',...
 	       'Loading test set.']);
    end
-   jaggedCellFile = sprintf(['movielens100k/' ...
-                       'jaggedTest%d.mat'],split);
+   jaggedCellFile = sprintf([dataName, ...
+                       '/jaggedTest%d.mat'],split);
    if exist(jaggedCellFile, 'file')
       % Load jaggedCell exampsBy* matrices from file
       data = load(jaggedCellFile);
    end
-
-   % Load primary training data
-   rawData = importdata(sprintf('movielens100k/u%d.base', split));
+%------------------------------------------------------------------%
+%------------------------------------------------------------------%
+%-------------Note: for 100k data and 10M data, -------------------%
+%-------------------input column is different!---------------------%
+%------------------------------------------------------------------%
+if(strcmp(dataName, 'movielens100k'))
+   rawData = importdata(sprintf('movielens100k/u%d.base', split)); 
    data.users = uint32(rawData(:,1));
    data.items = uint32(rawData(:,2));
    data.vals = rawData(:,3);
    data.numUsers = double(max(data.users));
    data.numItems = double(max(data.items));
    
-   % Load test data
    rawData = importdata(sprintf('movielens100k/u%d.test', split));
    testData.users = uint32(rawData(:,1));
    testData.items = uint32(rawData(:,2));
    testData.vals = rawData(:,3);
    clear rawData;
+end
 
+if(strcmp(dataName, 'movielens10M'))
+   % Load primary training data   
+   rawData = importdata(sprintf([dataName,'/r%d.train'], split));
+   data.users = uint32(rawData(:,1));
+%  for 100k data, item -> column 2, val -> column 3
+%  for 10M data, item -> column 3, val -> column 5
+
+   data.items = uint32(rawData(:,3));
+   data.vals = rawData(:,5);
+   data.numUsers = double(71567);
+   data.numItems = double(65133);
+   
+   % Load test data
+   rawData = importdata(sprintf([dataName,'/r%d.test'], split));
+   testData.users = uint32(rawData(:,1));
+   testData.items = uint32(rawData(:,3));
+   testData.vals = rawData(:,5);
+   clear rawData;
+end
+
+
+%------------------------------------------------------------------%
+%------------------------------------------------------------------%
+%------------------------------------------------------------------%
+%------------------------------------------------------------------%
+%------------------------------------------------------------------%
    if ~exist(jaggedCellFile, 'file')
       % Generate jaggedCell exampsBy* matrices and save to file
       data.exampsByUser = jaggedCell(data.users, data.numUsers);
@@ -91,7 +121,7 @@ if(strcmp(dataName, 'movielens100k'))
       save(jaggedCellFile, '-STRUCT', 'data', 'exampsByUser', ...
            'exampsByItem');
    end
-end
+%end
 %% Obtain test examples by user and by item
 if ~isfield(testData,'exampsByUser') || isempty(testData.exampsByUser)
     testData.exampsByUser = jaggedCell(testData.users, data.numUsers);
