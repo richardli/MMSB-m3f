@@ -20,12 +20,12 @@ output/*
 .DS_Store
 *.mat
 *.base
-*.mat
 *.pl
 *.dat
-*.log
 m3f/testing/ml-10m.zip
 m3f/testing/m3f*
 m3f/testing/testm3f_*
 *.test
 *.train
+.mat
+.log 
