@@ -59,3 +59,7 @@ m3f/testing/movielens100k/jaggedTest1.mat
 m3f/testing/testm3f_tib/samples/m3f_tib_movielens100k_split2_model-numFacs10_KU2_KM2_init3_sample50.mat
 
 *.log
+
+m3f/testing/movielens10M/ratings.time
+
+m3f/testing/movielens10M/ratings.time
