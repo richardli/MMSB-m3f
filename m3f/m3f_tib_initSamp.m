@@ -86,16 +86,28 @@ elseif initMode < 3
    samp.chi = model.chi0;
    
    % Sample topics for all examples
-   if model.KU > 0 
-      samp.logthetaU = repmat(log(1.0/model.KU), model.KU, ...
+   if (model.KU > 0 && isempty(model.KUdist) )
+      samp.Uprior = repmat(1.0/model.KU, 1, model.KU); 
+      samp.logthetaU = repmat(log(samp.Uprior)', 1, ...
+                              model.numUsers);
+      samp.zU = sampleVectorMex(exp(samp.logthetaU), data.users);
+   elseif ~isempty(model.KUdist)
+       samp.Uprior = dlmread(model.KUdist);
+       samp.logthetaU = repmat(log(samp.Uprior)', 1, ...
                               model.numUsers);
       samp.zU = sampleVectorMex(exp(samp.logthetaU), data.users);
    else
       samp.logthetaU = [];
       samp.zU = [];
    end
-   if model.KM > 0
-      samp.logthetaM = repmat(log(1.0/model.KM), model.KM, ...
+   if (model.KM > 0 && isempty(model.KMdist) )
+      samp.Mprior = repmat(1.0/model.KM, 1, model.KM);
+      samp.logthetaM = repmat(log(samp.Mprior)', 1, ...
+                              model.numItems);
+      samp.zM = sampleVectorMex(exp(samp.logthetaM), data.items);
+   elseif  ~isempty(model.KMdist)
+       samp.Mprior = dlmread(model.KMdist);
+       samp.logthetaM = repmat(log(samp.Mprior)', 1, ...
                               model.numItems);
       samp.zM = sampleVectorMex(exp(samp.logthetaM), data.items);
    else

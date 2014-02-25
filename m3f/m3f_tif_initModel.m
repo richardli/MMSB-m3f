@@ -1,4 +1,4 @@
-function model = m3f_tif_initModel(numUsers, numItems, numFacs, KU, KM, ...
+function model = m3f_tif_initModel(numUsers, numItems, numFacs, KU, KM, KUdist, KMdist, ...
                                      numTopicFacs, W0, nu0, mu0, lambda0,...
                                      WTilde0, nuTilde0, muTilde0, lambdaTilde0,...
                                      alpha, sigmaSqd, sigmaSqd0, c0, d0, chi0)
@@ -71,12 +71,15 @@ function model = m3f_tif_initModel(numUsers, numItems, numFacs, KU, KM, ...
 
 % -----------------------------BEGIN CODE--------------------------------
 
-if nargin < 7
+if nargin < 7 + 2
    model.numUsers = numUsers;
    model.numItems = numItems;
-   model.KU = KU;
+   model.KU = KU;    
+   model.KUdist = KUdist;
+
    model.KM = KM;
-   
+   model.KMdist = KMdist;
+
    % Default values for free parameters
    model.W0 = eye(numFacs);
    model.nu0 = numFacs;
@@ -95,7 +98,9 @@ else
    model.numUsers = numUsers;
    model.numItems = numItems;
    model.KU = KU;
+   model.KUdist = KUdist;
    model.KM = KM;
+   model.KMdist = KMdist;
    model.W0 = W0;
    model.nu0 = nu0;
    model.mu0 = mu0;

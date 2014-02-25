@@ -102,9 +102,20 @@ elseif initMode < 3
    
    samp.c = repmat(samp.muTildeU, [1 model.numUsers model.KM]);
    samp.d = repmat(samp.muTildeM, [1 model.numItems model.KU]);
-   
-   samp.logthetaU = repmat(log(1.0/model.KU), model.KU, model.numUsers);
-   samp.logthetaM = repmat(log(1.0/model.KM), model.KM, model.numItems);
+   if isempty(model.KUdist)
+       samp.Uprior = repmat(1.0/model.KU, 1, model.KU); 
+       samp.logthetaU = repmat(log(samp.Uprior)',1, model.numUsers);
+   else
+        samp.Uprior = dlmread(model.KUdist);
+        samp.logthetaU = repmat(log(samp.Uprior)', 1, model.numUsers);
+   end
+   if isempty(model.KMdist)
+        samp.Mprior = repmat(1.0/model.KM, 1, model.KM);
+        samp.logthetaM = repmat(log(samp.Mprior)', 1, model.numItems);
+   else
+        samp.Mprior = dlmread(model.KMdist);
+        samp.logthetaM = repmat(log(samp.Mprior)', 1, model.numUsers);       
+   end
    samp.zU = sampleVectorMex(exp(samp.logthetaU), data.users);
    samp.zM = sampleVectorMex(exp(samp.logthetaM), data.items);
    

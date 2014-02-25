@@ -57,15 +57,15 @@
 // Sample topic parameters
 // Function written from perspective of sampling user topics parameters
 // Switch roles of user-item inputs to sample item topics parameters
-void sampleTopicParams(const mxArray* exampsByUser, int KU, int numUsers,
+void sampleTopicParams(const mxArray* exampsByUser, int KU, double* prior, int numUsers,
                        double alpha, double* logthetaU, uint32_t* zU){
 
    // Array of static random number generators
    gsl_rng** rngs = getRngArray();
 
    // Prior term for Dirichlet
-   const double ratio = alpha/KU;
-
+   //const double ratio = alpha/KU;
+    
    // Allocate memory for storing topic counts
    double* counts[MAX_NUM_THREADS];
    for(int thread = 0; thread < MAX_NUM_THREADS; thread++)
@@ -76,7 +76,7 @@ void sampleTopicParams(const mxArray* exampsByUser, int KU, int numUsers,
       int thread = omp_get_thread_num();
       // Initialize to prior term
       for(int i = 0; i < KU; i++){
-         counts[thread][i] = ratio;
+         counts[thread][i] = prior[i] * alpha;
       }
       //counts[thread][0] += alpha/4;
       //counts[thread][1] += alpha/4;
@@ -114,12 +114,17 @@ void mexFunction(int nlhs, mxArray *plhs[],
    const mxArray* model = prhs[1];
    int KU = (*mxGetPr(mxGetField(model, 0, "KU"))) + .5;
    int KM = (*mxGetPr(mxGetField(model, 0, "KM"))) + .5;
+   
    int numUsers = (*mxGetPr(mxGetField(model, 0, "numUsers"))) + .5;
    int numItems = (*mxGetPr(mxGetField(model, 0, "numItems"))) + .5;
    double alpha = (*mxGetPr(mxGetField(model, 0, "alpha")));
    const mxArray* samp = prhs[2];
    double* logthetaU = mxGetPr(mxGetField(samp, 0, "logthetaU")); // KU x numUsers
    double* logthetaM = mxGetPr(mxGetField(samp, 0, "logthetaM")); // KM x numItems
+   
+   double* KUprior = mxGetPr(mxGetField(samp, 0, "Uprior")); 
+   double* KMprior = mxGetPr(mxGetField(samp, 0, "Mprior")); 
+   
    uint32_t* zU = (uint32_t*)mxGetData(prhs[3]);
    uint32_t* zM = (uint32_t*)mxGetData(prhs[4]);
    mxLogical* sampParams = NULL;
@@ -129,10 +134,10 @@ void mexFunction(int nlhs, mxArray *plhs[],
 
    // Sample user topic parameters
    if((KU > 1) && ((sampParams == NULL) || sampParams[0])){
-      sampleTopicParams(exampsByUser, KU, numUsers, alpha, logthetaU, zU);
+      sampleTopicParams(exampsByUser, KU, KUprior, numUsers, alpha, logthetaU, zU);
    }
    // Sample item topic parameters
    if((KM > 1) && ((sampParams == NULL) || sampParams[1])){
-      sampleTopicParams(exampsByItem, KM, numItems, alpha, logthetaM, zM);
+      sampleTopicParams(exampsByItem, KM, KMprior, numItems, alpha, logthetaM, zM);
    }
 }

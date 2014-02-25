@@ -1,4 +1,4 @@
-function [model] = m3f_tib_initModel(numUsers, numItems, numFacs, KU, KM, W0,...
+function [model] = m3f_tib_initModel(numUsers, numItems, numFacs, KU, KM, KUdist, KMdist,W0,...
                                        nu0, mu0, lambda0, alpha, sigmaSqd, ...
                                        sigmaSqd0, c0, d0, chi0)
 %M3F_TIB_INITMODEL Initialize and return a TIB model structure.
@@ -25,7 +25,10 @@ function [model] = m3f_tib_initModel(numUsers, numItems, numFacs, KU, KM, W0,...
 %    c0 (1 x 1)
 %    d0 (1 x 1)
 %    chi0 (1 x 1)
-%
+%      
+%    KUdist: file path to read prior U distribution (KU * 1)
+%    KMdist: file path to read prior M distribution (KM * 1)
+%    
 % Outputs:
 %    model - TIB model structure initialized according to
 %            given inputs and default values for unspecified free
@@ -63,11 +66,13 @@ function [model] = m3f_tib_initModel(numUsers, numItems, numFacs, KU, KM, W0,...
 
 % -----------------------------BEGIN CODE--------------------------------
 
-if nargin < 6
+if nargin < 6 + 2
    model.numUsers = numUsers;
    model.numItems = numItems;
    model.KU = KU;
+   model.KUdist = KUdist;
    model.KM = KM;
+   model.KMdist = KMdist;
    
    % Default values for free parameters
    model.W0 = eye(numFacs);
@@ -87,7 +92,9 @@ else
    model.numUsers = numUsers;
    model.numItems = numItems;
    model.KU = KU;
+   model.KUdist = KUdist;
    model.KM = KM;
+   model.KMdist = KMdist;
    model.W0 = W0;
    model.nu0 = nu0;
    model.mu0 = mu0;
