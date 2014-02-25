@@ -12,14 +12,14 @@ do
 done
 
 allbut.pl ua 1 10 100000 u.data
-sort -t"	" -k 1,1n -k 2,2n ua.base > tmp.$$
-mv tmp.$$ ua.base
-sort -t"	" -k 1,1n -k 2,2n ua.test > tmp.$$
-mv tmp.$$ ua.test
+sort -t"	" -k 1,1n -k 2,2n u100.base > tmp.$$
+mv tmp.$$ u100.base
+sort -t"	" -k 1,1n -k 2,2n u100.test > tmp.$$
+mv tmp.$$ u100.test
 
 allbut.pl ub 11 20 100000 u.data
-sort -t"	" -k 1,1n -k 2,2n ub.base > tmp.$$
-mv tmp.$$ ub.base
-sort -t"	" -k 1,1n -k 2,2n ub.test > tmp.$$
-mv tmp.$$ ub.test
+sort -t"	" -k 1,1n -k 2,2n u101.base > tmp.$$
+mv tmp.$$ u101.base
+sort -t"	" -k 1,1n -k 2,2n u101.test > tmp.$$
+mv tmp.$$ u101.test
 

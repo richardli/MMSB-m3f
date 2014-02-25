@@ -88,7 +88,7 @@ if(strcmp(dataName, 'movielens100k'))
    clear rawData;
 end
 
-if(strcmp(dataName, 'movielens10M'))
+if(strcmp(dataName, 'movielens10M')|| strcmp(dataName, 'movielens1M'))
    % Load primary training data   
    rawData = importdata(sprintf([dataName,'/r%d.train'], split));
    data.users = uint32(rawData(:,1));
