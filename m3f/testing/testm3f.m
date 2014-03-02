@@ -31,21 +31,21 @@
 
 % -----------------------------BEGIN CODE--------------------------------
 
-test_tib = false;
+test_tib = true;
 test_tif = true;
 if test_tib
-        KU = 2;
+        KU = 5;
         KM = 1;
         NumFacs = 20;
-        distSeed = 1;
-        KUdist = 'testKUdist1-dim5.txt';
+        distSeed = 0;
+        %%KUdist = 'testKUdist1-dim5.txt';
         KUdist = '';
         KMdist = '';
-    Ngibbs = 100 ;
-    Nburnin = 0;
+    Ngibbs = 500 ;
+    Nburnin = 300;
     dirname = sprintf('results/Prior%d-m3f_tib-KU%d-KM%d-NumFacs%d',...
                         distSeed, KU, KM, NumFacs);
-    whichdata = sprintf('movielens100k');                
+    whichdata = sprintf('movielens1M');                
     mkdir(dirname);
     mkdir(sprintf([dirname,'/models']));
     mkdir(sprintf([dirname,'/samples']));
