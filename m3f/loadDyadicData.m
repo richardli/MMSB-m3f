@@ -118,16 +118,31 @@ end
       % Generate jaggedCell exampsBy* matrices and save to file
       data.exampsByUser = jaggedCell(data.users, data.numUsers);
       data.exampsByItem = jaggedCell(data.items, data.numItems);
+      
+      % @richard here add jagged rating
+      data.ratingsByUser = jaggedCellrating(data.users, data.vals, data.numUsers);
+      data.ratingsByItem = jaggedCellrating(data.items, data.vals, data.numItems);
       save(jaggedCellFile, '-STRUCT', 'data', 'exampsByUser', ...
-           'exampsByItem');
+           'exampsByItem', 'ratingsByUser', 'ratingsByItem');
    end
 %end
 %% Obtain test examples by user and by item
 if ~isfield(testData,'exampsByUser') || isempty(testData.exampsByUser)
     testData.exampsByUser = jaggedCell(testData.users, data.numUsers);
 end
+if ~isfield(testData,'ratingsByUser') || isempty(testData.ratingsByUser)
+    testData.ratingsByUser = jaggedCellrating(testData.users, testData.vals, data.numUsers);
+end
 if ~isfield(testData,'exampsByItem') || isempty(testData.exampsByItem)
     testData.exampsByItem = jaggedCell(testData.items, data.numItems);
 end
+if ~isfield(testData,'ratingsByItem') || isempty(testData.ratingsByItem)
+    testData.ratingsByItem = jaggedCellrating(testData.items, testData.vals, data.numItems);
+
+end
+data.fitByUser = data.ratingsByUser;
+data.fitByItem = data.ratingsByItem;
+testData.fitByUser = testData.ratingsByUser;
+testData.fitByItem = testData.ratingsByItem;
 
 % -----------------------------END OF CODE-------------------------------
