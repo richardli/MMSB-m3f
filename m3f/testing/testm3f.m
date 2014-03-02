@@ -36,7 +36,7 @@ test_tif = true;
 if test_tib
         KU = 2;
         KM = 1;
-        NumFacs = 10;
+        NumFacs = 20;
         distSeed = 1;
         %KUdist = 'testKUdist1-dim5.txt';
         KUdist = '';
