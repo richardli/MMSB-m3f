@@ -253,6 +253,15 @@ for t = 2:opts.T
             t, luNorm, lmNorm, ltuNorm, ltmNorm, aNorm, bNorm);
 end
 
+%% after looping, update predicted ratings to jagged cell
+testData.fitByUser = jaggedCellrating(testData.users, testPreds/(t-opts.burnin), data.numUsers);
+testData.fitByItem = jaggedCellrating(testData.items, testPreds/(t-opts.burnin), data.numItems);
+data.fitByUser = jaggedCellrating(data.users, trainPreds/(t-opts.burnin), data.numUsers);
+data.fitByItem = jaggedCellrating(data.items, trainPreds/(t-opts.burnin), data.numItems);
+
+%%Analyze by user / item
+err(t).ana = fit_eval_var(data, testData, opts);
+
 %% Close open streams
 fclose(logStrm);
 
