@@ -31,19 +31,19 @@
 
 % -----------------------------BEGIN CODE--------------------------------
 
-test_tib = true;
+test_tib = false;
 test_tif = true;
 if test_tib
         KU = 2;
         KM = 1;
         NumFacs = 20;
         distSeed = 1;
-        %KUdist = 'testKUdist1-dim5.txt';
+        KUdist = 'testKUdist1-dim5.txt';
         KUdist = '';
         KMdist = '';
-    Ngibbs = 200 ;
+    Ngibbs = 100 ;
     Nburnin = 0;
-    dirname = sprintf('Prior%d-m3f_tib-KU%d-KM%d-NumFacs%d',...
+    dirname = sprintf('results/Prior%d-m3f_tib-KU%d-KM%d-NumFacs%d',...
                         distSeed, KU, KM, NumFacs);
     whichdata = sprintf('movielens100k');                
     mkdir(dirname);
@@ -53,6 +53,20 @@ if test_tib
     %%
     err = m3f_tib_exper(dirname, whichdata, [100 101], 3, ...
         12345,  NumFacs, KU, KM , KUdist, KMdist, Ngibbs, Nburnin);
+end
+
+if test_tif
+     NumTopicFacs = 2;
+     dirname = sprintf('results/Prior%d-m3f_tif-KU%d-KM%d-NumFacs%d',...
+                        distSeed, KU, KM, NumFacs);
+    whichdata = sprintf('movielens100k');                
+    mkdir(dirname);
+    mkdir(sprintf([dirname,'/models']));
+    mkdir(sprintf([dirname,'/samples']));
+    mkdir(sprintf([dirname,'/log']));
+     
+    err = m3f_tif_exper(dirname, whichdata, [100 101], 3, ...
+        12345,  NumFacs, KU, KM , KUdist, KMdist, NumTopicFacs, Ngibbs, Nburnin);
 end
 % %% scripts to get the table
 % if test_tib
