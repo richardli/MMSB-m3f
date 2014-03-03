@@ -65,7 +65,7 @@ findTopVar <- function(item.1, item.2, min.count, max.out, top){
 	allvar <- (item.1[, 3] + item.2[, 3]) / 2
 	all.train <- (item.1[, 2] + item.2[, 2]) / 2
 	all.test <- (item.1[, 1] + item.2[, 1]) / 2
-	
+
 	if(min.count < 1) min.count <- max(quantile(item.1[,4], min.count), 	
 										quantile(item.2[,4], min.count))
 	tolook <- intersect(which(item.1[,4] > min.count), 
@@ -76,6 +76,8 @@ findTopVar <- function(item.1, item.2, min.count, max.out, top){
 	all.train.tolook <- all.train[tolook]
 	all.test.tolook <- all.test[tolook]
 	# for the top
+	# if max.out == NULL, output all
+	if(is.null(max.out)) max.out <- length(tolook)
 	output.index <- order(allvar.tolook, decreasing = TRUE)[1:max.out]
 	output.train = all.train.tolook[output.index]
 	output.test = all.test.tolook[output.index]						 
@@ -95,7 +97,7 @@ findTopVar <- function(item.1, item.2, min.count, max.out, top){
 # function to plot top and bottome variances versus RMSE
 #
 #
-toplowplot <- function(tib.toplot, tib.toplot.low, head){
+toplowplot <- function(tib.toplot, tib.toplot.low, rmse, head){
 	yscale <- range(c(tib.toplot[[1]], tib.toplot[[2]], 
 					tib.toplot.low[[1]], tib.toplot.low[[2]]))
 	par(mfrow = c(1, 2))
@@ -105,6 +107,7 @@ toplowplot <- function(tib.toplot, tib.toplot.low, head){
 		 main = paste(head,  "least variable"), 
 		 ylim = yscale)
 	points(tib.toplot.low$var, tib.toplot.low$train, col = "red")
+	abline(h = rmse, col = "blue")
 	
 	plot(tib.toplot$var, tib.toplot$test, 
 		 xlab = "Variance in training set", 
@@ -112,12 +115,14 @@ toplowplot <- function(tib.toplot, tib.toplot.low, head){
 		 main = paste(head, "most variable"), 
 		 ylim = yscale)
 	points(tib.toplot$var, tib.toplot$train, col = "red")
+	abline(h = rmse, col = "blue")
+
 }
 
 # functions to compare two runs
 #
 #
-tworunplot <- function(item.var1, item.var2, header, plottrain = FALSE){
+tworunplot <- function(item.var1, item.var2, header, plottrain = FALSE, noplot = FALSE){
 	if((sum(item.var2[[1]]$var - item.var1[[1]]$var) != 0)
 		||(sum(item.var2[[2]]$var - item.var1[[2]]$var) != 0)){
 			print("Wrong comparison")
@@ -128,26 +133,41 @@ tworunplot <- function(item.var1, item.var2, header, plottrain = FALSE){
 	trainup <- item.var1[[1]]$train - item.var2[[1]]$train 
 	trainlow <- item.var1[[2]]$train - item.var2[[2]]$train
 	# note the two variance should be the same
-	yscale <- range(c( testup, testlow, trainup, trainlow))
-	par(mfrow = c(1,2))
-	plot(item.var1[[2]]$var, testlow,  
-		 xlab = "Variance in training set", 
-		 ylab = "difference in RMSE", 
-		 main = paste(header,  "least variable"), 
-		 ylim = yscale)
-	abline(h = 0, col = "blue")
-	if(plottrain){
-		points(item.var1[[2]]$var, trainlow, col = "red")
-	}	 
-	plot(item.var1[[1]]$var, testup,  
-		 xlab = "Variance in training set", 
-		 ylab = "difference in RMSE", 
-		 main = paste(header,  "most variable"), 
-		 ylim = yscale)
-	abline(h = 0, col = "blue")
-	if(plottrain){
-		points(item.var1[[1]]$var, trainup, col = "red")
-	}	 					
+	if(!noplot){
+		yscale <- range(c( testup, testlow, trainup, trainlow))
+		par(mfrow = c(1,2))
+		plot(item.var1[[2]]$var, -testlow,  
+			 xlab = "Variance in training set", 
+			 ylab = "improvement in RMSE", 
+			 main = paste(header,  "least variable"), 
+			 ylim = yscale)
+		abline(h = 0, col = "blue")
+		if(plottrain){
+			points(item.var1[[2]]$var, -trainlow, col = "red")
+		}	 
+		plot(item.var1[[1]]$var, -testup,  
+			 xlab = "Variance in training set", 
+			 ylab = "improvement in RMSE", 
+			 main = paste(header,  "most variable"), 
+			 ylim = yscale)
+		abline(h = 0, col = "blue")
+		if(plottrain){
+			points(item.var1[[1]]$var, -trainup, col = "red")
+		}
+	}
+	
+	tab <- matrix(c(mean(trainlow), mean(trainup), 
+				 mean(testlow), mean(testup)), 2, 2, byrow = TRUE)
+	colnames(tab) <- c("lower", "upper")
+	rownames(tab) <- c("train", "test")
+	tab.cor <- matrix(c(cor(trainlow, item.var1[[2]]$var), 
+				 cor(trainup, item.var1[[1]]$var), 
+				 cor(testlow, item.var1[[2]]$var),
+				 cor(testup, item.var1[[1]]$var) ), 2,2 , byrow = TRUE)
+	colnames(tab.cor) <- c("lower", "upper")
+	rownames(tab.cor) <- c("train", "test")
+	return(list(Avg.improvment = -tab, 	
+				Correlation = -tab.cor))	 					
 }
 
 # functions to load regular log data

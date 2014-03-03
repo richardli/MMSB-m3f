@@ -20,5 +20,5 @@ item2 <- read.table(path$item2, header = TRUE)
 user1 <- read.table(path$user1, header = TRUE)
 user2 <- read.table(path$user2, header = TRUE)
 ###################################################
-item.toplot <- findTopVar(item1, item2, min.count = 20, max.out = 100)
-user.toplot <- findTopVar(user1, user2, min.count = 20, max.out = 100)
+item.toplot <- findTopVar(item1, item2, min.count , max.out )
+user.toplot <- findTopVar(user1, user2, min.count , max.out )
