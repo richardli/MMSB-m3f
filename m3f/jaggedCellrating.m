@@ -30,6 +30,9 @@ end
 % Populate jagged cell array with indices of entries
 % referencing each id in ids
 ratings = double(ratings);
+%ratings = min(ratings, 5);
+%ratings = max(ratings, 1);
+
 for e = 1:numExamples
     r = ids(e);
     % changed here @richard, if not all users are in the test data

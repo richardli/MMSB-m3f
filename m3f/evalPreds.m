@@ -47,6 +47,8 @@ function [res] = evalPreds(groundTruth, preds, metric)
 % -----------------------------BEGIN CODE--------------------------------
 
 res = -1;
+%preds = min(preds, 5);
+%preds = max(preds, 1);
 if(strcmp(metric, 'rmse'))
     res = sqrt(mean((groundTruth - preds).^2));
 elseif(strcmp(metric, 'mae'))

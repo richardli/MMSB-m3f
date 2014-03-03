@@ -32,17 +32,18 @@
 % -----------------------------BEGIN CODE--------------------------------
 
 test_tib = true;
-test_tif = true;
+test_tif = false;
 if test_tib
-        KU = 5;
-        KM = 1;
+        KU = 9;
+        KM = 9;
         NumFacs = 20;
-        distSeed = 0;
-        %%KUdist = 'testKUdist1-dim5.txt';
-        KUdist = '';
-        KMdist = '';
-    Ngibbs = 500 ;
-    Nburnin = 300;
+        distSeed = 3;
+        KUdist = 'kmeansKUdist-dim9.txt';
+        KMdist = 'kmeansKMdist-dim9.txt';
+        % KUdist = '';
+        % KMdist = '';
+    Ngibbs = 5 ;
+    Nburnin = 3;
     dirname = sprintf('results/Prior%d-m3f_tib-KU%d-KM%d-NumFacs%d',...
                         distSeed, KU, KM, NumFacs);
     whichdata = sprintf('movielens1M');                
@@ -53,7 +54,38 @@ if test_tib
     %%
     err = m3f_tib_exper(dirname, whichdata, [100 101], 3, ...
         12345,  NumFacs, KU, KM , KUdist, KMdist, Ngibbs, Nburnin);
-end
+    %%
+%     KU = 9;
+%     KM = 9;
+%     KUdist = '';
+%     distSeed = 0;
+%     dirname = sprintf('results/Prior%d-m3f_tib-KU%d-KM%d-NumFacs%d',...
+%                         distSeed, KU, KM, NumFacs);
+%     whichdata = sprintf('movielens1M');                
+%     mkdir(dirname);
+%     mkdir(sprintf([dirname,'/models']));
+%     mkdir(sprintf([dirname,'/samples']));
+%     mkdir(sprintf([dirname,'/log']));
+%     %%
+%     err = m3f_tib_exper(dirname, whichdata, [100 101], 3, ...
+%         12345,  NumFacs, KU, KM , KUdist, KMdist, Ngibbs, Nburnin);
+%       %%
+%     KM = 2;  
+%     KU = 9;
+%     KUdist = '';
+%     KMdist = '';
+%     distSeed = 0;
+%     dirname = sprintf('results/Prior%d-m3f_tib-KU%d-KM%d-NumFacs%d',...
+%                         distSeed, KU, KM, NumFacs);
+%     whichdata = sprintf('movielens1M');                
+%     mkdir(dirname);
+%     mkdir(sprintf([dirname,'/models']));
+%     mkdir(sprintf([dirname,'/samples']));
+%     mkdir(sprintf([dirname,'/log']));
+%     %%
+%     err = m3f_tib_exper(dirname, whichdata, [100 101], 3, ...
+%         12345,  NumFacs, KU, KM , KUdist, KMdist, Ngibbs, Nburnin);
+ end
 
 if test_tif
      NumTopicFacs = 2;
