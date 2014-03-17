@@ -134,13 +134,19 @@ tworunplot <- function(item.var1, item.var2, header, plottrain = FALSE, noplot =
 	trainlow <- item.var1[[2]]$train - item.var2[[2]]$train
 	# note the two variance should be the same
 	if(!noplot){
-		yscale <- range(c( testup, testlow, trainup, trainlow))
+		if(plottrain){
+			yscale.low <- range(c( -testlow, -trainlow))
+			yscale.up <- range(c(-trainup, -testup))
+		}else{
+			yscale.low <- range(-testlow)
+			yscale.up <- range(-testup)
+		}
 		par(mfrow = c(1,2))
 		plot(item.var1[[2]]$var, -testlow,  
 			 xlab = "Variance in training set", 
 			 ylab = "improvement in RMSE", 
 			 main = paste(header,  "least variable"), 
-			 ylim = yscale)
+			 ylim = yscale.low)
 		abline(h = 0, col = "blue")
 		if(plottrain){
 			points(item.var1[[2]]$var, -trainlow, col = "red")
@@ -149,7 +155,7 @@ tworunplot <- function(item.var1, item.var2, header, plottrain = FALSE, noplot =
 			 xlab = "Variance in training set", 
 			 ylab = "improvement in RMSE", 
 			 main = paste(header,  "most variable"), 
-			 ylim = yscale)
+			 ylim = yscale.up)
 		abline(h = 0, col = "blue")
 		if(plottrain){
 			points(item.var1[[1]]$var, -trainup, col = "red")
@@ -286,4 +292,162 @@ loadm3ftiblog <- function(path, burnin, length, KM, KU){
 				d.norm = d.norm, 
 				zM.count = zM.count, 
 				zU.count = zU.count))
+}
+
+GetInfo <- function(model, path, movies, 
+					burnin = NULL, n.gibbs = NULL, 
+					KM = NULL, KU = NULL, 
+					singlefile = FALSE){
+	if(singlefile){
+		
+		item1 <- read.table(path[1], header = TRUE)
+		item2 <- read.table(path[2], header = TRUE)
+		item = (as.matrix(item1) + as.matrix(item2))/2
+		item = cbind(item[,1], rep(0, dim(item)[1]), 
+					 item[,2:3])
+		name <- movies[which(!is.na(apply(item, 1, sum)))]
+		item <- item[which(!is.na(apply(item, 1, sum))), ]
+		return(list(item = item,   movie = name, rmse = NULL))
+	}
+	if(model == "tib"){
+		out1 <- loadm3ftiblog(path$path1, burnin = burnin, 
+						  length = n.gibbs, KM , KU )
+		out2 <- loadm3ftiblog(path$path2, burnin = burnin, 
+						  length = n.gibbs, KM , KU )	
+	}else{
+		out1 <- loadm3flog(path$path1, burnin = burnin, 
+						   length = n.gibbs, KM , KU )
+		out2 <- loadm3flog(path$path2, burnin = burnin, 
+						   length = n.gibbs, KM , KU )
+	}
+	rmse <- mean(c(out1$rmse.test[n.gibbs - burnin],
+				   out2$rmse.test[n.gibbs - burnin]))
+	###################################################
+	item1 <- read.table(path$item1, header = TRUE)
+	item2 <- read.table(path$item2, header = TRUE)
+	user1 <- read.table(path$user1, header = TRUE)
+	user2 <- read.table(path$user2, header = TRUE)
+	item = (as.matrix(item1) + as.matrix(item2))/2
+	user = (as.matrix(user1) + as.matrix(user2))/2
+	name <- movies[which(!is.na(apply(item, 1, sum)))]
+	item <- item[which(!is.na(apply(item, 1, sum))), ]
+	user <- user[which(!is.na(apply(user, 1, sum))), ]
+	
+	return(list(item = item, user = user, movie = name, rmse = rmse))
+}
+
+ReadMovies <- function(whichdata){
+	if(whichdata == "1M"){
+		path <- file("~/Dropbox/Big-data-workspace/m3f/testing/movielens1M/movies.dat")
+		open(path)
+		pack <- readLines(path, warn = FALSE)
+		close(path)
+		names <- rep("", length(path))
+		for(i in 1:length(pack)){
+			temp <- strsplit(pack[i], "::")[[1]][2]
+			if(nchar(temp) > 7){
+			temp <- substring(temp, 1, nchar(temp) - 7)	
+			}
+			if(nchar(temp) > 5){
+				if(substring(temp, nchar(temp) - 4, nchar(temp)) ==
+						", The"){
+				temp <- substring(temp, 1, nchar(temp) - 5)
+				}				
+			}
+			names[i] <- temp
+		}
+		return(names)
+	}
+	
+	if(whichdata == "100k"){
+		path <- file("~/Dropbox/Big-data-workspace/m3f/testing/movielens100k/u.item")
+		open(path)
+		pack <- readLines(path, warn = FALSE)
+		close(path)
+		names <- rep("", length(path))
+		for(i in 1:length(pack)){
+			temp <- strsplit(pack[i], "\\|")[[1]][2]
+			if(nchar(temp) > 7){
+			temp <- substring(temp, 1, nchar(temp) - 7)	
+			}
+			if(nchar(temp) > 5){
+				if(substring(temp, nchar(temp) - 4, nchar(temp)) ==
+						", The"){
+				temp <- substring(temp, 1, nchar(temp) - 5)
+				}				
+			}
+			names[i] <- temp
+		}
+		return(names)
+
+	}
+}
+
+Cond.mean <- function(item, count, var, number){
+	if(!is.null(count)){
+		item <- item[item[,4] > count, ]
+	}
+	if(!is.null(var)){
+		item <- item[item[, 3] > var, ]
+	}
+	rank <- order(item[, 1], decreasing = TRUE)
+	print(item[rank[1:10], ])
+	return(mean(item[rank[1:10], 1]))
+}
+
+Cond.compare <- function(item, item.improve, count, var, number){
+	if(!is.null(count)){
+		whichleft <- union(which(item[,4] > count), 
+						which(item.improve[,4] > count))
+		item <- item[whichleft, ]
+		item.improve <- item.improve[whichleft, ] 
+	}
+	if(!is.null(var)){
+		whichleft <- union(which(item[,3] > var), 
+						which(item.improve[,3] > var))
+		item <- item[whichleft, ]
+		item.improve <- item.improve[whichleft, ]
+	}
+	rank <- order(item[, 1], decreasing = TRUE)
+	# print(item[rank[1:number], ])
+	diff <- item[rank[1:number], 1] - item.improve[rank[1:number], 1]
+	 return(list(mean = mean(diff), 
+				sd = sd(diff)))
+}
+
+
+multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+  require(grid)
+
+  # Make a list from the ... arguments and plotlist
+  plots <- c(list(...), plotlist)
+
+  numPlots = length(plots)
+
+  # If layout is NULL, then use 'cols' to determine layout
+  if (is.null(layout)) {
+    # Make the panel
+    # ncol: Number of columns of plots
+    # nrow: Number of rows needed, calculated from # of cols
+    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
+                    ncol = cols, nrow = ceiling(numPlots/cols))
+  }
+
+ if (numPlots==1) {
+    print(plots[[1]])
+
+  } else {
+    # Set up the page
+    grid.newpage()
+    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
+
+    # Make each plot, in the correct location
+    for (i in 1:numPlots) {
+      # Get the i,j matrix positions of the regions that contain this subplot
+      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
+
+      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
+                                      layout.pos.col = matchidx$col))
+    }
+  }
 }
