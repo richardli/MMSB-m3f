@@ -120,7 +120,7 @@ elseif initMode < 4
 
    %% Initialize to model means and then learn MAP estimates of static factors
    samp = m3f_tib_initSamp(2, model, data, testData);
-   sgdFactorVectors(data, model, samp, 50, testData);
+   sgdFactorVectors(data, model, samp, 30, testData);
 else
    error('invalid init mode: %d', initMode);
 end

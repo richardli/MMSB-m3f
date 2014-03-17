@@ -81,6 +81,7 @@ if nargin < 6 + 2
    model.lambda0 = 10; 
  
    model.alpha = 10000;
+ %  model.alpha = 5000;
  %  model.alpha = 1;
    
    model.sigmaSqd = .5;
